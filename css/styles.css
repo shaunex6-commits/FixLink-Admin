@@ -1,0 +1,130 @@
+:root {
+  --navy: #062b5c;
+  --blue: #0877e8;
+  --gold: #f5a900;
+  --bg: #f4f7fb;
+  --white: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--navy);
+}
+
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: linear-gradient(135deg, var(--navy) 0%, #0b4a96 100%);
+}
+
+.login-card {
+  width: 100%;
+  max-width: 420px;
+  background: var(--white);
+  border-radius: 16px;
+  padding: 36px 32px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+}
+
+.login-brand {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.brand-mark {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 14px;
+  border-radius: 14px;
+  background: var(--navy);
+  color: var(--gold);
+  font-size: 30px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-brand h1 {
+  margin: 0;
+  font-size: 24px;
+  color: var(--navy);
+}
+
+.login-brand h1 span {
+  color: var(--blue);
+}
+
+.login-brand p {
+  margin: 6px 0 0;
+  color: #5b6b82;
+  font-size: 14px;
+}
+
+.login-form label {
+  display: block;
+  margin: 16px 0 6px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #cfd8e6;
+  border-radius: 8px;
+  font-size: 15px;
+  outline: none;
+}
+
+.login-form input:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(8, 119, 232, 0.15);
+}
+
+.login-form button {
+  width: 100%;
+  margin-top: 22px;
+  padding: 13px;
+  border: none;
+  border-radius: 8px;
+  background: var(--blue);
+  color: var(--white);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.login-form button:hover {
+  background: #0662bd;
+}
+
+.login-message {
+  min-height: 20px;
+  margin: 12px 0 0;
+  font-size: 14px;
+  text-align: center;
+  color: #c0392b;
+}
+
+.login-footer {
+  margin: 24px 0 0;
+  text-align: center;
+  font-size: 12px;
+  color: #7a889c;
+}
+
+@media (max-width: 480px) {
+  .login-card {
+    padding: 28px 20px;
+  }
+}
