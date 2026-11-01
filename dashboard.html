@@ -37,16 +37,16 @@
     <main class="content">
 
       <div class="section-panel active" id="section-overview">
-        <section class="stat-grid">
-          <div class="stat-card"><p>Total Customers</p><h3>—</h3></div>
-          <div class="stat-card"><p>Total Professionals</p><h3>—</h3></div>
-          <div class="stat-card"><p>Pending Verifications</p><h3>—</h3></div>
-          <div class="stat-card"><p>Total Bookings</p><h3>—</h3></div>
-          <div class="stat-card"><p>Active Jobs</p><h3>—</h3></div>
+                   <section class="stat-grid">
+          <div class="stat-card"><p>Total Customers</p><h3 id="stat-customers">…</h3></div>
+          <div class="stat-card"><p>Total Professionals</p><h3 id="stat-professionals">…</h3></div>
+          <div class="stat-card"><p>Unverified Professionals</p><h3 id="stat-unverified">…</h3></div>
+          <div class="stat-card"><p>Total Bookings</p><h3 id="stat-bookings">…</h3></div>
+          <div class="stat-card"><p>Requested Bookings</p><h3 id="stat-requested">…</h3></div>
           <div class="stat-card"><p>Completed Jobs</p><h3>—</h3></div>
           <div class="stat-card"><p>Cancelled Jobs</p><h3>—</h3></div>
           <div class="stat-card"><p>Platform Revenue</p><h3>—</h3></div>
-        </section>
+        </section>     
         <p class="placeholder-note">Statistics will appear here once the database is connected.</p>
       </div>
 
@@ -61,9 +61,10 @@
     </main>
   </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
   <script src="js/supabase-config.js"></script>
   <script src="js/guard.js"></script>
+  <script src="js/stats.js"></script>
   <script src="js/dashboard.js"></script>
 </body>
-</html>
+</html>    
