@@ -138,3 +138,28 @@
     padding: 18px;
   }
 }
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-icon {
+  width: 22px;
+  text-align: center;
+  font-size: 16px;
+}
+
+.section-panel {
+  display: none;
+}
+
+.section-panel.active {
+  display: block;
+}
+
+.section-panel h3 {
+  margin: 0 0 12px;
+  color: var(--navy);
+}

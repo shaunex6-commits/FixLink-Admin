@@ -16,14 +16,14 @@
     </div>
 
     <nav class="sidebar-nav">
-      <a href="#" class="nav-link active">Overview</a>
-      <a href="#" class="nav-link">Customers</a>
-      <a href="#" class="nav-link">Professionals</a>
-      <a href="#" class="nav-link">Verification</a>
-      <a href="#" class="nav-link">Bookings</a>
-      <a href="#" class="nav-link">Payments</a>
-      <a href="#" class="nav-link">Complaints</a>
-      <a href="#" class="nav-link">Live Jobs</a>
+      <a href="#" class="nav-link active" data-section="overview"><span class="nav-icon">📊</span> Overview</a>
+      <a href="#" class="nav-link" data-section="customers"><span class="nav-icon">👥</span> Customers</a>
+      <a href="#" class="nav-link" data-section="professionals"><span class="nav-icon">🛠️</span> Professionals</a>
+      <a href="#" class="nav-link" data-section="verification"><span class="nav-icon">✅</span> Verification</a>
+      <a href="#" class="nav-link" data-section="bookings"><span class="nav-icon">📅</span> Bookings</a>
+      <a href="#" class="nav-link" data-section="payments"><span class="nav-icon">💳</span> Payments</a>
+      <a href="#" class="nav-link" data-section="complaints"><span class="nav-icon">⚠️</span> Complaints</a>
+      <a href="#" class="nav-link" data-section="live"><span class="nav-icon">📍</span> Live Jobs</a>
     </nav>
   </aside>
 
@@ -34,20 +34,32 @@
     </header>
 
     <main class="content">
-      <section class="stat-grid">
-        <div class="stat-card"><p>Total Customers</p><h3>—</h3></div>
-        <div class="stat-card"><p>Total Professionals</p><h3>—</h3></div>
-        <div class="stat-card"><p>Pending Verifications</p><h3>—</h3></div>
-        <div class="stat-card"><p>Total Bookings</p><h3>—</h3></div>
-        <div class="stat-card"><p>Active Jobs</p><h3>—</h3></div>
-        <div class="stat-card"><p>Completed Jobs</p><h3>—</h3></div>
-        <div class="stat-card"><p>Cancelled Jobs</p><h3>—</h3></div>
-        <div class="stat-card"><p>Platform Revenue</p><h3>—</h3></div>
-      </section>
 
-      <p class="placeholder-note">Statistics will appear here once the database is connected.</p>
+      <div class="section-panel active" id="section-overview">
+        <section class="stat-grid">
+          <div class="stat-card"><p>Total Customers</p><h3>—</h3></div>
+          <div class="stat-card"><p>Total Professionals</p><h3>—</h3></div>
+          <div class="stat-card"><p>Pending Verifications</p><h3>—</h3></div>
+          <div class="stat-card"><p>Total Bookings</p><h3>—</h3></div>
+          <div class="stat-card"><p>Active Jobs</p><h3>—</h3></div>
+          <div class="stat-card"><p>Completed Jobs</p><h3>—</h3></div>
+          <div class="stat-card"><p>Cancelled Jobs</p><h3>—</h3></div>
+          <div class="stat-card"><p>Platform Revenue</p><h3>—</h3></div>
+        </section>
+        <p class="placeholder-note">Statistics will appear here once the database is connected.</p>
+      </div>
+
+      <div class="section-panel" id="section-customers"><h3>Customers</h3><p class="placeholder-note">Customer records will appear here once the database is connected.</p></div>
+      <div class="section-panel" id="section-professionals"><h3>Professionals</h3><p class="placeholder-note">Professional records will appear here once the database is connected.</p></div>
+      <div class="section-panel" id="section-verification"><h3>Verification Requests</h3><p class="placeholder-note">Verification applications will appear here once the database is connected.</p></div>
+      <div class="section-panel" id="section-bookings"><h3>Bookings</h3><p class="placeholder-note">Bookings will appear here once the database is connected.</p></div>
+      <div class="section-panel" id="section-payments"><h3>Payments and Revenue</h3><p class="placeholder-note">Payment records will appear here once the database is connected.</p></div>
+      <div class="section-panel" id="section-complaints"><h3>Complaints and Reports</h3><p class="placeholder-note">Complaints will appear here once the database is connected.</p></div>
+      <div class="section-panel" id="section-live"><h3>Live Job Monitoring</h3><p class="placeholder-note">Ongoing jobs will appear here once the database is connected.</p></div>
+
     </main>
   </div>
 
+  <script src="js/dashboard.js"></script>
 </body>
 </html>
