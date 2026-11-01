@@ -95,17 +95,19 @@
 }
 
 #signOutBtn {
-  padding: 7px 14px;
-  border: 1px solid #cfd8e6;
+  padding: 8px 16px;
+  border: none;
   border-radius: 8px;
-  background: var(--white);
-  color: var(--navy);
+  background: var(--navy);
+  color: var(--white);
   font-size: 13px;
+  font-weight: 600;
   cursor: pointer;
 }
 
 #signOutBtn:hover {
-  background: var(--bg);
+  background: var(--gold);
+  color: var(--navy);
 }
 
 .content {
