@@ -41,7 +41,9 @@
 }
 
 .nav-link {
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 10px;
   padding: 11px 14px;
   border-radius: 8px;
   color: #c9d6ea;
@@ -57,6 +59,12 @@
 .nav-link.active {
   background: var(--blue);
   color: var(--white);
+}
+
+.nav-icon {
+  width: 22px;
+  text-align: center;
+  font-size: 16px;
 }
 
 .main-area {
@@ -79,12 +87,42 @@
 }
 
 .topbar-user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
   font-size: 14px;
   color: #5b6b82;
 }
 
+#signOutBtn {
+  padding: 7px 14px;
+  border: 1px solid #cfd8e6;
+  border-radius: 8px;
+  background: var(--white);
+  color: var(--navy);
+  font-size: 13px;
+  cursor: pointer;
+}
+
+#signOutBtn:hover {
+  background: var(--bg);
+}
+
 .content {
   padding: 28px;
+}
+
+.section-panel {
+  display: none;
+}
+
+.section-panel.active {
+  display: block;
+}
+
+.section-panel h3 {
+  margin: 0 0 12px;
+  color: var(--navy);
 }
 
 .stat-grid {
@@ -137,29 +175,4 @@
   .content {
     padding: 18px;
   }
-}
-
-.nav-link {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.nav-icon {
-  width: 22px;
-  text-align: center;
-  font-size: 16px;
-}
-
-.section-panel {
-  display: none;
-}
-
-.section-panel.active {
-  display: block;
-}
-
-.section-panel h3 {
-  margin: 0 0 12px;
-  color: var(--navy);
 }
