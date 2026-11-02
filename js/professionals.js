@@ -42,8 +42,7 @@ function applyProFilters() {
   const mode = document.getElementById("proFilter").value;
 
   const filtered = allPros.filter(function (p) {
-    const text = [p.full_name, p.profession, p.email, p.phone, p.location]
-      .join(" ").toLowerCase();
+    const text = [p.full_name, p.profession, p.location].join(" ").toLowerCase();
     if (!text.includes(term)) return false;
     if (mode === "verified") return p.verified === true;
     if (mode === "unverified") return p.verified !== true;
@@ -60,13 +59,12 @@ async function loadPros() {
 
   const { data, error } = await db
     .from("professionals")
-    .select("id, full_name, email, phone, profession, location, years_experience, rating, starting_price, verified, is_premium")
-    .order("full_name", { ascending: true })
+    .select("id, full_name, profession, location, years_experience, rating, starting_price, verified, is_premium")
     .limit(500);
 
   if (error) {
     console.error("Could not load professionals", error);
-    if (note) note.textContent = "Could not load professionals.";
+    if (note) note.textContent = "Could not load professionals: " + error.message;
     return;
   }
 
