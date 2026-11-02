@@ -36,7 +36,19 @@
 
     <main class="content">
 
-      <div class="section-panel active" id="section-overview">
+            <div class="section-panel" id="section-customers">
+        <h3>Customers</h3>
+        <input type="search" id="customerSearch" class="table-search" placeholder="Search by name, email, phone or location">
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr><th>Name</th><th>Email</th><th>Phone</th><th>Location</th><th>Joined</th></tr>
+            </thead>
+            <tbody id="customerRows"></tbody>
+          </table>
+        </div>
+        <p class="placeholder-note" id="customerNote">Loading customers…</p>
+      </div>
                 <section class="stat-grid">
           <div class="stat-card"><p>Total Customers</p><h3 id="stat-customers">…</h3></div>
           <div class="stat-card"><p>Total Professionals</p><h3 id="stat-professionals">…</h3></div>
