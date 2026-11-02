@@ -226,3 +226,47 @@
 .data-table tbody tr:hover {
   background: var(--bg);
 }
+
+.table-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.table-tools .table-search {
+  margin-bottom: 0;
+}
+
+.table-filter {
+  padding: 11px 14px;
+  border: 1px solid #cfd8e6;
+  border-radius: 8px;
+  background: var(--white);
+  color: var(--navy);
+  font-size: 14px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.badge-green {
+  background: #e3f6ec;
+  color: #1a7a45;
+}
+
+.badge-gold {
+  background: #fff3d1;
+  color: #8a5d00;
+}
+
+.badge-grey {
+  background: #eaeff6;
+  color: #5b6b82;
+}
