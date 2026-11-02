@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/dashboard.css">
 </head>
-<body class="dashboard-page" style="visibility:hidden"></body>
+<body class="dashboard-page" style="visibility:hidden">
 
   <aside class="sidebar">
     <div class="sidebar-brand">
@@ -30,13 +30,27 @@
   <div class="main-area">
     <header class="topbar">
       <h2>Overview</h2>
-      
-            <div class="topbar-user"><span id="adminName">Administrator</span> <button id="signOutBtn" type="button">Sign out</button></div>
+      <div class="topbar-user"><span id="adminName">Administrator</span> <button id="signOutBtn" type="button">Sign out</button></div>
     </header>
 
     <main class="content">
 
-            <div class="section-panel" id="section-customers">
+      <div class="section-panel active" id="section-overview">
+        <section class="stat-grid">
+          <div class="stat-card"><p>Total Customers</p><h3 id="stat-customers">…</h3></div>
+          <div class="stat-card"><p>Total Professionals</p><h3 id="stat-professionals">…</h3></div>
+          <div class="stat-card"><p>Unverified Professionals</p><h3 id="stat-unverified">…</h3></div>
+          <div class="stat-card"><p>Total Bookings</p><h3 id="stat-bookings">…</h3></div>
+          <div class="stat-card"><p>Requested Bookings</p><h3 id="stat-requested">…</h3></div>
+          <div class="stat-card"><p>Accepted Bookings</p><h3 id="stat-accepted">…</h3></div>
+          <div class="stat-card"><p>Completed Jobs</p><h3 id="stat-completed">…</h3></div>
+          <div class="stat-card"><p>Cancelled Jobs</p><h3>—</h3></div>
+          <div class="stat-card"><p>Platform Revenue</p><h3>—</h3></div>
+        </section>
+        <p class="placeholder-note">Cards showing "—" will be connected once the real statuses are confirmed.</p>
+      </div>
+
+      <div class="section-panel" id="section-customers">
         <h3>Customers</h3>
         <input type="search" id="customerSearch" class="table-search" placeholder="Search by name, email, phone or location">
         <div class="table-wrap">
@@ -49,21 +63,7 @@
         </div>
         <p class="placeholder-note" id="customerNote">Loading customers…</p>
       </div>
-                <section class="stat-grid">
-          <div class="stat-card"><p>Total Customers</p><h3 id="stat-customers">…</h3></div>
-          <div class="stat-card"><p>Total Professionals</p><h3 id="stat-professionals">…</h3></div>
-          <div class="stat-card"><p>Unverified Professionals</p><h3 id="stat-unverified">…</h3></div>
-          <div class="stat-card"><p>Total Bookings</p><h3 id="stat-bookings">…</h3></div>
-          <div class="stat-card"><p>Requested Bookings</p><h3 id="stat-requested">…</h3></div>
-          <div class="stat-card"><p>Accepted Bookings</p><h3 id="stat-accepted">…</h3></div>
-          <div class="stat-card"><p>Completed Jobs</p><h3 id="stat-completed">…</h3></div>
-          <div class="stat-card"><p>Cancelled Jobs</p><h3>—</h3></div>
-          <div class="stat-card"><p>Platform Revenue</p><h3>—</h3></div>
-        </section>           
-        <p class="placeholder-note">Statistics will appear here once the database is connected.</p>
-      </div>
 
-      <div class="section-panel" id="section-customers"><h3>Customers</h3><p class="placeholder-note">Customer records will appear here once the database is connected.</p></div>
       <div class="section-panel" id="section-professionals"><h3>Professionals</h3><p class="placeholder-note">Professional records will appear here once the database is connected.</p></div>
       <div class="section-panel" id="section-verification"><h3>Verification Requests</h3><p class="placeholder-note">Verification applications will appear here once the database is connected.</p></div>
       <div class="section-panel" id="section-bookings"><h3>Bookings</h3><p class="placeholder-note">Bookings will appear here once the database is connected.</p></div>
@@ -78,6 +78,7 @@
   <script src="js/supabase-config.js"></script>
   <script src="js/guard.js"></script>
   <script src="js/stats.js"></script>
+  <script src="js/customers.js"></script>
   <script src="js/dashboard.js"></script>
 </body>
-</html>    
+</html>

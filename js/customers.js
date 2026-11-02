@@ -8,8 +8,10 @@ function addCell(row, text) {
 
 function renderCustomers(list) {
   const body = document.getElementById("customerRows");
-  body.innerHTML = "";
+  const note = document.getElementById("customerNote");
+  if (!body || !note) return;
 
+  body.innerHTML = "";
   list.forEach(function (c) {
     const tr = document.createElement("tr");
     addCell(tr, c.full_name);
@@ -20,11 +22,12 @@ function renderCustomers(list) {
     body.appendChild(tr);
   });
 
-  document.getElementById("customerNote").textContent =
-    list.length + " of " + allCustomers.length + " customers shown.";
+  note.textContent = list.length + " of " + allCustomers.length + " customers shown.";
 }
 
 async function loadCustomers() {
+  const note = document.getElementById("customerNote");
+
   const { data, error } = await db
     .from("customers")
     .select("id, full_name, email, phone, location, created_at")
@@ -33,7 +36,7 @@ async function loadCustomers() {
 
   if (error) {
     console.error("Could not load customers", error);
-    document.getElementById("customerNote").textContent = "Could not load customers.";
+    if (note) note.textContent = "Could not load customers.";
     return;
   }
 
@@ -41,13 +44,16 @@ async function loadCustomers() {
   renderCustomers(allCustomers);
 }
 
-document.getElementById("customerSearch").addEventListener("input", function (e) {
-  const term = e.target.value.trim().toLowerCase();
-  const filtered = allCustomers.filter(function (c) {
-    return [c.full_name, c.email, c.phone, c.location]
-      .join(" ").toLowerCase().includes(term);
+const searchBox = document.getElementById("customerSearch");
+if (searchBox) {
+  searchBox.addEventListener("input", function (e) {
+    const term = e.target.value.trim().toLowerCase();
+    const filtered = allCustomers.filter(function (c) {
+      return [c.full_name, c.email, c.phone, c.location]
+        .join(" ").toLowerCase().includes(term);
+    });
+    renderCustomers(filtered);
   });
-  renderCustomers(filtered);
-});
+}
 
 loadCustomers();
