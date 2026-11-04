@@ -67,7 +67,7 @@
       <div class="section-panel" id="section-professionals">
         <h3>Professionals</h3>
         <div class="table-tools">
-          <input type="search" id="proSearch" class="table-search" placeholder="Search by name, trade, email, phone or location">
+          <input type="search" id="proSearch" class="table-search" placeholder="Search by name, trade or location">
           <select id="proFilter" class="table-filter">
             <option value="all">All professionals</option>
             <option value="verified">Verified only</option>
@@ -88,7 +88,26 @@
       </div>
 
       <div class="section-panel" id="section-verification"><h3>Verification Requests</h3><p class="placeholder-note">Verification applications will appear here once the database is connected.</p></div>
-      <div class="section-panel" id="section-bookings"><h3>Bookings</h3><p class="placeholder-note">Bookings will appear here once the database is connected.</p></div>
+
+      <div class="section-panel" id="section-bookings">
+        <h3>Bookings</h3>
+        <div class="table-tools">
+          <input type="search" id="bookingSearch" class="table-search" placeholder="Search by service, customer, professional or location">
+          <select id="bookingFilter" class="table-filter">
+            <option value="all">All statuses</option>
+          </select>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr><th>Service</th><th>Customer</th><th>Professional</th><th>Location</th><th>Urgency</th><th>Budget (₦)</th><th>Scheduled</th><th>Created</th><th>Status</th></tr>
+            </thead>
+            <tbody id="bookingRows"></tbody>
+          </table>
+        </div>
+        <p class="placeholder-note" id="bookingNote">Loading bookings…</p>
+      </div>
+
       <div class="section-panel" id="section-payments"><h3>Payments and Revenue</h3><p class="placeholder-note">Payment records will appear here once the database is connected.</p></div>
       <div class="section-panel" id="section-complaints"><h3>Complaints and Reports</h3><p class="placeholder-note">Complaints will appear here once the database is connected.</p></div>
       <div class="section-panel" id="section-live"><h3>Live Job Monitoring</h3><p class="placeholder-note">Ongoing jobs will appear here once the database is connected.</p></div>
@@ -102,6 +121,7 @@
   <script src="js/stats.js"></script>
   <script src="js/customers.js"></script>
   <script src="js/professionals.js"></script>
+  <script src="js/bookings.js"></script>
   <script src="js/dashboard.js"></script>
 </body>
 </html>
