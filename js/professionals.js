@@ -6,11 +6,12 @@ function addTextCell(row, text) {
   row.appendChild(td);
 }
 
-function addBadgeCell(row, text, className) {
+function addBadgeCell(row, text, className, tip) {
   const td = document.createElement("td");
   const span = document.createElement("span");
   span.className = "badge " + className;
   span.textContent = text;
+  if (tip) span.title = tip;
   td.appendChild(span);
   row.appendChild(td);
 }
@@ -31,10 +32,16 @@ function renderPros(list) {
     addTextCell(tr, p.starting_price !== null ? Number(p.starting_price).toLocaleString() : "");
     addBadgeCell(tr, p.verified ? "Verified" : "Unverified", p.verified ? "badge-green" : "badge-grey");
     addBadgeCell(tr, p.is_premium ? "Premium" : "Standard", p.is_premium ? "badge-gold" : "badge-grey");
+    addBadgeCell(tr, p.is_suspended ? "Suspended" : "Active", p.is_suspended ? "badge-red" : "badge-green", p.suspend_reason);
+
+    const actionCell = document.createElement("td");
+    actionCell.appendChild(makeActionButton(p.profile_id, p.full_name, p.is_suspended));
+    tr.appendChild(actionCell);
+
     body.appendChild(tr);
   });
 
-  note.textContent = list.length + " of " + allPros.length + " professionals shown.";
+  note.textContent = list.length + " of " + allPros.length + " professionals shown. Suspensions are recorded here; they do not yet block the main FixLink app.";
 }
 
 function applyProFilters() {
@@ -48,6 +55,7 @@ function applyProFilters() {
     if (mode === "unverified") return p.verified !== true;
     if (mode === "premium") return p.is_premium === true;
     if (mode === "standard") return p.is_premium !== true;
+    if (mode === "suspended") return p.is_suspended === true;
     return true;
   });
 
@@ -57,10 +65,7 @@ function applyProFilters() {
 async function loadPros() {
   const note = document.getElementById("proNote");
 
-  const { data, error } = await db
-    .from("professionals")
-    .select("id, full_name, profession, location, years_experience, rating, starting_price, verified, is_premium")
-    .limit(500);
+  const { data, error } = await db.rpc("admin_list_professionals");
 
   if (error) {
     console.error("Could not load professionals", error);
@@ -69,7 +74,7 @@ async function loadPros() {
   }
 
   allPros = data;
-  renderPros(allPros);
+  applyProFilters();
 }
 
 const proSearch = document.getElementById("proSearch");

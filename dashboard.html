@@ -24,6 +24,7 @@
       <a href="#" class="nav-link" data-section="payments"><span class="nav-icon">💳</span> Payments</a>
       <a href="#" class="nav-link" data-section="complaints"><span class="nav-icon">⚠️</span> Complaints</a>
       <a href="#" class="nav-link" data-section="live"><span class="nav-icon">📍</span> Live Jobs</a>
+      <a href="#" class="nav-link" data-section="audit"><span class="nav-icon">📋</span> Audit Log</a>
     </nav>
   </aside>
 
@@ -45,9 +46,9 @@
           <div class="stat-card"><p>Accepted Bookings</p><h3 id="stat-accepted">…</h3></div>
           <div class="stat-card"><p>Completed Jobs</p><h3 id="stat-completed">…</h3></div>
           <div class="stat-card"><p>Cancelled Jobs</p><h3>—</h3></div>
-          <div class="stat-card"><p>Platform Revenue</p><h3>—</h3></div>
+          <div class="stat-card"><p>Platform Revenue (confirmed)</p><h3 id="stat-revenue">…</h3></div>
         </section>
-        <p class="placeholder-note">Cards showing "—" will be connected once the real statuses are confirmed.</p>
+        <p class="placeholder-note">Cancelled Jobs will be connected once a cancelled status exists in the data.</p>
       </div>
 
       <div class="section-panel" id="section-customers">
@@ -56,7 +57,7 @@
         <div class="table-wrap">
           <table class="data-table">
             <thead>
-              <tr><th>Name</th><th>Email</th><th>Phone</th><th>Location</th><th>Joined</th></tr>
+              <tr><th>Name</th><th>Email</th><th>Phone</th><th>Location</th><th>Joined</th><th>Account</th><th>Action</th></tr>
             </thead>
             <tbody id="customerRows"></tbody>
           </table>
@@ -74,12 +75,13 @@
             <option value="unverified">Unverified only</option>
             <option value="premium">Premium only</option>
             <option value="standard">Standard only</option>
+            <option value="suspended">Suspended only</option>
           </select>
         </div>
         <div class="table-wrap">
           <table class="data-table">
             <thead>
-              <tr><th>Name</th><th>Trade</th><th>Location</th><th>Experience</th><th>Rating</th><th>From (₦)</th><th>Status</th><th>Plan</th></tr>
+              <tr><th>Name</th><th>Trade</th><th>Location</th><th>Experience</th><th>Rating</th><th>From (₦)</th><th>Status</th><th>Plan</th><th>Account</th><th>Action</th></tr>
             </thead>
             <tbody id="proRows"></tbody>
           </table>
@@ -108,9 +110,37 @@
         <p class="placeholder-note" id="bookingNote">Loading bookings…</p>
       </div>
 
-      <div class="section-panel" id="section-payments"><h3>Payments and Revenue</h3><p class="placeholder-note">Payment records will appear here once the database is connected.</p></div>
+      <div class="section-panel" id="section-payments">
+        <h3>Payments and Revenue</h3>
+        <div class="table-tools">
+          <input type="search" id="paymentSearch" class="table-search" placeholder="Search by reference, customer or professional">
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr><th>Reference</th><th>Customer</th><th>Professional</th><th>Total (₦)</th><th>Professional amount (₦)</th><th>Customer fee (₦)</th><th>Professional fee (₦)</th><th>FixLink amount (₦)</th><th>Status</th><th>Paid</th><th>Released</th><th>Refunded</th></tr>
+            </thead>
+            <tbody id="paymentRows"></tbody>
+          </table>
+        </div>
+        <p class="placeholder-note" id="paymentNote">Loading payments…</p>
+      </div>
+
       <div class="section-panel" id="section-complaints"><h3>Complaints and Reports</h3><p class="placeholder-note">Complaints will appear here once the database is connected.</p></div>
       <div class="section-panel" id="section-live"><h3>Live Job Monitoring</h3><p class="placeholder-note">Ongoing jobs will appear here once the database is connected.</p></div>
+
+      <div class="section-panel" id="section-audit">
+        <h3>Audit Log</h3>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr><th>When</th><th>Action</th><th>Account</th><th>Reason</th><th>By</th></tr>
+            </thead>
+            <tbody id="auditRows"></tbody>
+          </table>
+        </div>
+        <p class="placeholder-note" id="auditNote">Loading audit log…</p>
+      </div>
 
     </main>
   </div>
@@ -119,9 +149,12 @@
   <script src="js/supabase-config.js"></script>
   <script src="js/guard.js"></script>
   <script src="js/stats.js"></script>
+  <script src="js/actions.js"></script>
   <script src="js/customers.js"></script>
   <script src="js/professionals.js"></script>
   <script src="js/bookings.js"></script>
+  <script src="js/payments.js"></script>
+  <script src="js/audit.js"></script>
   <script src="js/dashboard.js"></script>
 </body>
 </html>

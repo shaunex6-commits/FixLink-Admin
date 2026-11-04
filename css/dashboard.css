@@ -270,3 +270,40 @@
     padding: 18px;
   }
 }
+
+.badge-blue {
+  background: #e1efff;
+  color: #0b5cb5;
+}
+
+.badge-red {
+  background: #fde7e7;
+  color: #b42318;
+}
+
+.btn-small {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-danger {
+  background: #b42318;
+  color: var(--white);
+}
+
+.btn-danger:hover {
+  background: #8f1b12;
+}
+
+.btn-ok {
+  background: #1a7a45;
+  color: var(--white);
+}
+
+.btn-ok:hover {
+  background: #14603a;
+}
